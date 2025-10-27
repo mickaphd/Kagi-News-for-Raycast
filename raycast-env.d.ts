@@ -9,7 +9,13 @@
 
 type ExtensionPreferences = {
   /** Language - Article language */
-  "language": "default" | "en" | "es" | "fr" | "de" | "it" | "pt" | "pt-BR" | "ja" | "ko" | "zh-Hans" | "zh-Hant" | "nl" | "pl" | "ru" | "sv" | "fi" | "nb" | "tr" | "th" | "uk" | "ca" | "hi" | "ar" | "he" | "lb"
+  "language": "default" | "en" | "es" | "fr" | "de" | "it" | "pt" | "pt-BR" | "ja" | "ko" | "zh-Hans" | "zh-Hant" | "nl" | "pl" | "ru" | "sv" | "fi" | "nb" | "tr" | "th" | "uk" | "ca" | "hi" | "ar" | "he" | "lb",
+  /** More Options - Display the article 'primary image' */
+  "showImages": boolean,
+  /** undefined - Display the 'Talking Points' section */
+  "showTalkingPoints": boolean,
+  /** undefined - Display the 'Did You Know' section */
+  "showDidYouKnow": boolean
 }
 
 /** Preferences accessible in all the extension's commands */

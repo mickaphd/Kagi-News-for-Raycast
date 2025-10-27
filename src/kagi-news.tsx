@@ -2,8 +2,15 @@ import { List, Detail, Action, ActionPanel, Icon, getPreferenceValues } from "@r
 import { useCachedState } from "@raycast/utils";
 import { useState, useEffect } from "react";
 
+// ============================================================================
+// Types & Interfaces
+// ============================================================================
+
 interface Preferences {
   language: string;
+  showImages: boolean;
+  showTalkingPoints: boolean;
+  showDidYouKnow: boolean;
 }
 
 interface Category {
@@ -21,6 +28,11 @@ interface ClusterArticle {
   link: string;
 }
 
+interface ImageData {
+  url: string;
+  link?: string;
+}
+
 interface Cluster {
   cluster_number: number;
   title: string;
@@ -30,6 +42,7 @@ interface Cluster {
   did_you_know?: string;
   emoji?: string;
   category: string;
+  primary_image?: ImageData;
 }
 
 interface Article {
@@ -41,6 +54,7 @@ interface Article {
   didYouKnow?: string;
   emoji?: string;
   category: string;
+  primary_image?: ImageData;
 }
 
 interface CategoryResponse {
@@ -66,8 +80,16 @@ interface KiteResponse {
   timestamp?: number;
 }
 
+// ============================================================================
+// Constants
+// ============================================================================
+
 const CATEGORIES_URL = "https://kite.kagi.com/kite.json";
 const NEWS_BASE_URL = "https://news.kagi.com";
+
+// ============================================================================
+// Helper Functions
+// ============================================================================
 
 function getDomain(url: string): string {
   try {
@@ -75,6 +97,17 @@ function getDomain(url: string): string {
     return domain.replace("www.", "");
   } catch {
     return url;
+  }
+}
+
+function domainMatches(sourceUrl: string, referenceDomain: string): boolean {
+  try {
+    const sourceDomain = getDomain(sourceUrl);
+    if (sourceDomain === referenceDomain) return true;
+    if (sourceDomain.endsWith(`.${referenceDomain}`)) return true;
+    return false;
+  } catch {
+    return false;
   }
 }
 
@@ -103,9 +136,14 @@ function clustersToArticles(clusters: Cluster[]): Article[] {
       didYouKnow: cluster.did_you_know,
       emoji: cluster.emoji,
       category: cluster.category,
+      primary_image: cluster.primary_image,
     };
   });
 }
+
+// ============================================================================
+// Custom Hooks
+// ============================================================================
 
 function useCategoryFeed(categoryFile: string, language: string) {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -133,10 +171,8 @@ function useCategoryFeed(categoryFile: string, language: string) {
         if (categoryFile === "onthisday.json") {
           setIsOnThisDay(true);
           const allEvents = (data as OnThisDayResponse).events || [];
-
           const eventsList = allEvents.filter((e) => e.type === "event").sort((a, b) => a.sort_year - b.sort_year);
           const peopleList = allEvents.filter((e) => e.type === "people").sort((a, b) => a.sort_year - b.sort_year);
-
           setEvents([...eventsList, ...peopleList]);
           setArticles([]);
         } else {
@@ -157,6 +193,10 @@ function useCategoryFeed(categoryFile: string, language: string) {
 
   return { articles, events, isLoading, error, isOnThisDay };
 }
+
+// ============================================================================
+// Main Component
+// ============================================================================
 
 export default function Command() {
   const preferences = getPreferenceValues<Preferences>();
@@ -193,6 +233,7 @@ export default function Command() {
     isOnThisDay,
   } = useCategoryFeed(selectedCategory, preferences.language);
 
+  // Event Detail View
   if (selectedEvent) {
     const markdown = `# ${selectedEvent.year}\n\n${stripHtml(selectedEvent.content)}`;
 
@@ -213,20 +254,27 @@ export default function Command() {
     );
   }
 
+  // Article Detail View
   if (selectedArticle) {
     const sources = selectedArticle.sources || [];
     const highlights = selectedArticle.highlights || [];
 
-    let markdown = `# ${selectedArticle.title}\n\n## Summary\n${selectedArticle.summary}`;
+    let markdown = `# ${selectedArticle.title}\n\n`;
 
-    if (highlights.length > 0) {
+    if (preferences.showImages && selectedArticle.primary_image?.url) {
+      markdown += `![](${selectedArticle.primary_image.url})\n\n`;
+    }
+
+    markdown += `## Summary\n${selectedArticle.summary}`;
+
+    if (preferences.showTalkingPoints && highlights.length > 0) {
       markdown += `\n\n## Talking Points\n`;
       highlights.forEach((highlight) => {
         markdown += `- ${highlight}\n`;
       });
     }
 
-    if (selectedArticle.didYouKnow) {
+    if (preferences.showDidYouKnow && selectedArticle.didYouKnow) {
       markdown += `\n\n## Did You Know?\n${selectedArticle.didYouKnow}`;
     }
 
@@ -239,8 +287,8 @@ export default function Command() {
       const domain = match[1];
       const num = parseInt(match[2], 10);
       const key = `${domain}#${num}`;
+      const source = sources.find((s) => domainMatches(s.url, domain));
 
-      const source = sources.find((s) => getDomain(s.url) === domain);
       if (source && !referencedSources.has(key)) {
         referencedSources.set(key, source);
       }
@@ -267,6 +315,7 @@ export default function Command() {
     );
   }
 
+  // Main List View
   return (
     <List
       isLoading={loadingCategories || loadingContent}
