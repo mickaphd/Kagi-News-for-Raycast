@@ -1,3 +1,7 @@
+<div align="center">
+<img src="assets/extension-icon.png" width="200" alt="Browse Categories" />
+</div>
+
 # Kagi News
 
 Browse news articles and sources from Kagi News.
