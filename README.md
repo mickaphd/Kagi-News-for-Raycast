@@ -25,21 +25,17 @@ Browse news articles and sources from Kagi News directly in Raycast. Stay inform
 <tr>
 <td align="center">
 <img src="metadata/kagi-news-1.png" width="280" alt="Browse Categories" />
-<br><b>Browse Categories</b>
 </td>
 <td align="center">
 <img src="metadata/kagi-news-2.png" width="280" alt="View Articles" />
-<br><b>View Articles</b>
 </td>
 </tr>
 <tr>
 <td align="center">
 <img src="metadata/kagi-news-3.png" width="280" alt="Article Details" />
-<br><b>Article Details</b>
 </td>
 <td align="center">
 <img src="metadata/kagi-news-4.png" width="280" alt="Historical Events" />
-<br><b>Historical Events</b>
 </td>
 </tr>
 </table>
@@ -53,6 +49,11 @@ Browse news articles and sources from Kagi News directly in Raycast. Stay inform
 4. Select a news category  
 5. Browse articles beyond the 12 daily listings  
 6. Press Enter to open the article in Raycast
+
+## 🙏 Acknowledgements
+
+- [Kagi News](https://github.com/kagisearch/kite-public) 
+- [Raycast](https://github.com/raycast/extensions)
 
 ## 📥 Installation
 
