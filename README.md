@@ -1,6 +1,10 @@
 <div align="center">
 <img src="assets/extension-icon.png" width="200" alt="Kagi News Extension" />
+<br>  
+<a title="Install kagi-news Raycast Extension" href="https://www.raycast.com/mickaphd/kagi-news"><img src="https://www.raycast.com/mickaphd/kagi-news/install_button@2x.png?v=1.1" height="64" style="height: 64px;" alt=""></a>
 </div>
+
+
 
 # Kagi News for Raycast
 
