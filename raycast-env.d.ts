@@ -10,26 +10,70 @@
 type ExtensionPreferences = {
   /** Language - Article language */
   "language": "default" | "en" | "es" | "fr" | "de" | "it" | "pt" | "pt-BR" | "ja" | "ko" | "zh-Hans" | "zh-Hant" | "nl" | "pl" | "ru" | "sv" | "fi" | "nb" | "tr" | "th" | "uk" | "ca" | "hi" | "ar" | "he" | "lb",
-  /** Display Sections - Display the main article image */
-  "showPrimaryImage": boolean,
+  /** Display Sections - Display business angle points and analysis */
+  "showBusinessAnglePoints": boolean,
+  /**  - Display business angle narrative */
+  "showBusinessAngleText": boolean,
+  /**  - Display culinary-related information */
+  "showCulinarySignificance": boolean,
+  /**  - Display design principles and concepts */
+  "showDesignPrinciples": boolean,
+  /**  - Display destination highlights and attractions */
+  "showDestinationHighlights": boolean,
+  /**  - Display the 'Did You Know' section */
+  "showDidYouKnow": boolean,
+  /**  - Display DIY tips and instructions */
+  "showDiyTips": boolean,
+  /**  - Display economic implications and impacts */
+  "showEconomicImplications": boolean,
+  /**  - Display future outlook and predictions */
+  "showFutureOutlook": boolean,
+  /**  - Display gameplay mechanics and rules */
+  "showGameplayMechanics": boolean,
+  /**  - Display geopolitical context and analysis */
+  "showGeopoliticalContext": boolean,
   /**  - Display key talking points from the article */
   "showTalkingPoints": boolean,
-  /**  - Display the secondary article image */
-  "showSecondaryImage": boolean,
-  /**  - Display different perspectives on the story */
-  "showPerspectives": boolean,
   /**  - Display historical context */
   "showHistoricalBackground": boolean,
-  /**  - Display technical information */
-  "showTechnicalDetails": boolean,
+  /**  - Display humanitarian impact and concerns */
+  "showHumanitarianImpact": boolean,
   /**  - Display industry-related impacts */
   "showIndustryImpact": boolean,
-  /**  - Display timeline of events */
-  "showTimeline": boolean,
   /**  - Display reactions from international entities */
   "showInternationalReactions": boolean,
-  /**  - Display the 'Did You Know' section */
-  "showDidYouKnow": boolean
+  /**  - Display key players and stakeholders */
+  "showKeyPlayers": boolean,
+  /**  - Display league standings and rankings */
+  "showLeagueStandings": boolean,
+  /**  - Display location information */
+  "showLocation": boolean,
+  /**  - Display performance statistics and metrics */
+  "showPerformanceStatistics": boolean,
+  /**  - Display different perspectives on the story */
+  "showPerspectives": boolean,
+  /**  - Display the main article image */
+  "showPrimaryImage": boolean,
+  /**  - Display featured quote with attribution */
+  "showQuote": boolean,
+  /**  - Display scientific significance and findings */
+  "showScientificSignificance": boolean,
+  /**  - Display the secondary article image */
+  "showSecondaryImage": boolean,
+  /**  - Display suggested questions and answers */
+  "showSuggestedQna": boolean,
+  /**  - Display technical information */
+  "showTechnicalDetails": boolean,
+  /**  - Display technical specifications */
+  "showTechnicalSpecifications": boolean,
+  /**  - Display timeline of events */
+  "showTimeline": boolean,
+  /**  - Display travel advisories and warnings */
+  "showTravelAdvisory": boolean,
+  /**  - Display recommended user action items */
+  "showUserActionItems": boolean,
+  /**  - Display user experience impact analysis */
+  "showUserExperienceImpact": boolean
 }
 
 /** Preferences accessible in all the extension's commands */

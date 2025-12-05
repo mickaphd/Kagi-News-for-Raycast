@@ -1,64 +1,17 @@
-<div align="center">
-<img src="assets/extension-icon.png" width="200" alt="Kagi News Extension" />
-<br>  
-<a title="Install kagi-news Raycast Extension" href="https://www.raycast.com/mickaphd/kagi-news"><img src="https://www.raycast.com/mickaphd/kagi-news/install_button@2x.png?v=1.1" height="64" style="height: 64px;" alt=""></a>
-</div>
+# Kagi News
 
+Read and explore Kagi News articles and sources seamlessly in Raycast.
 
+## Features
 
-# Kagi News for Raycast
+- Over 80 news categories (World, Technology, Science, etc.), automatically updated from Kagi News GitHub.  
+-  Article summaries include images, key points, perspectives, timelines, and more.  
+-  Article summaries can be personalized by activating or deactivating more than 30 sections.  
+-  Historical events and figures are available in the OnThisDay category.  
+-  Supports more than 25 languages.  
+-  All source references are provided and are clickable. 
 
-Browse news articles and sources from Kagi News directly in Raycast. Stay informed with curated news across 80+ categories, read article summaries with key talking points, and explore historical events—all without leaving Raycast.
+## Usage
 
-## ✨ Features
-
-- **80+ news categories** — World, Technology, Science, Business, Entertainment, and more
-- **Smart article summaries** — Get talking points and key facts at a glance
-- **Historical events** — Discover what happened on this day via the OnThisDay category
-- **25+ language support** — Browse news in your preferred language
-- **Clickable source references** — Jump directly to original articles
-- **Always up to date** — Synced with Kagi News official JSON feed, so news and categories are always current
-- **Fast and lightweight** — Optimized for speed and performance
-- **Customizable display sections** — Toggle optional content like Primary Image, Talking Points, Secondary Image, Perspectives, Historical Background, Technical Details, Industry Impact, Timeline, International Reactions, and more
-- **Rich article details** — View comprehensive article information tailored to your preferences
-
-## 🎬 Screenshots
-
-<div align="center">
-<table>
-<tr>
-<td align="center">
-<img src="metadata/kagi-news-1.png" width="280" alt="Browse Categories" />
-</td>
-<td align="center">
-<img src="metadata/kagi-news-2.png" width="280" alt="View Articles" />
-</td>
-</tr>
-<tr>
-<td align="center">
-<img src="metadata/kagi-news-3.png" width="280" alt="Article Details" />
-</td>
-<td align="center">
-<img src="metadata/kagi-news-4.png" width="280" alt="Historical Events" />
-</td>
-</tr>
-</table>
-</div>
-
-## 🚀 Quick Start
-
-1. Open Raycast  
-2. Type "Kagi News"  
-3. Press `Cmd + P` to open the category selection  
-4. Select a news category  
-5. Browse articles beyond the 12 daily listings  
-6. Press Enter to open the article in Raycast
-
-## 🙏 Acknowledgements
-
-- [Kagi News](https://github.com/kagisearch/kite-public) 
-- [Raycast](https://github.com/raycast/extensions)
-
-## 📥 Installation
-
-<a title="Install kagi-news Raycast Extension" href="https://www.raycast.com/mickaphd/kagi-news"><img src="https://www.raycast.com/mickaphd/kagi-news/install_button@2x.png?v=1.1" height="64" style="height: 64px;" alt=""></a>
+- Open Raycast, type Daily/Kagi News, select a category, and browse articles.  
+- Use the settings to choose your preferred language and the sections you want to display.
