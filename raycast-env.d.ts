@@ -9,7 +9,7 @@
 
 type ExtensionPreferences = {
   /** Language - Article language */
-  "language": "default" | "en" | "es" | "fr" | "de" | "it" | "pt" | "pt-BR" | "ja" | "ko" | "zh-Hans" | "zh-Hant" | "nl" | "pl" | "ru" | "sv" | "fi" | "nb" | "tr" | "th" | "uk" | "ca" | "hi" | "ar" | "he" | "lb",
+  "language": "default" | "en" | "es" | "fr" | "de" | "it" | "pt" | "pt-BR" | "ja" | "ko" | "zh" | "zh-Hans" | "zh-Hant" | "nl" | "pl" | "ru" | "sv" | "fi" | "nb" | "tr" | "th" | "uk" | "ca" | "hi" | "ar" | "he" | "lb",
   /** Display Sections - Display business angle points and analysis */
   "showBusinessAnglePoints": boolean,
   /**  - Display business angle narrative */
@@ -82,10 +82,14 @@ declare type Preferences = ExtensionPreferences
 declare namespace Preferences {
   /** Preferences accessible in the `kagi-news` command */
   export type KagiNews = ExtensionPreferences & {}
+  /** Preferences accessible in the `time-travel` command */
+  export type TimeTravel = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
   /** Arguments passed to the `kagi-news` command */
   export type KagiNews = {}
+  /** Arguments passed to the `time-travel` command */
+  export type TimeTravel = {}
 }
 
