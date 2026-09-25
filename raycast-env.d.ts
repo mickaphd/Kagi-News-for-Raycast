@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
 type ExtensionPreferences = {
-  /** Language - Article language */
+  /** Language - Article language. Note: Kagi has temporarily disabled translations to manage costs, so only English and each article's original language currently display correctly. Other options are kept here and will work again once Kagi restores the feature. */
   "language": "default" | "en" | "es" | "fr" | "de" | "it" | "pt" | "pt-BR" | "ja" | "ko" | "zh" | "zh-Hans" | "zh-Hant" | "nl" | "pl" | "ru" | "sv" | "fi" | "nb" | "tr" | "th" | "uk" | "ca" | "hi" | "ar" | "he" | "lb",
   /** Display Sections - Display business angle points and analysis */
   "showBusinessAnglePoints": boolean,
